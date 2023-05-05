@@ -1,0 +1,6 @@
+221011perturbsci_gRNA_lib7_8_01_08
+221011perturbsci_gRNA_lib7_8_09_16
+221011perturbsci_gRNA_lib9_10_01_08
+221011perturbsci_gRNA_lib9_10_09_16
+221011perturbsci_gRNA_lib11_12_01_08
+221011perturbsci_gRNA_lib11_12_09_16
