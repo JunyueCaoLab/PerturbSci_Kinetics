@@ -61,7 +61,7 @@ echo "Current time : $now"
 
 input_folder=$fastq_folder
 output_folder=$all_output_folder/UMI_attach
-script=$script_folder/UMI_barcode_attach_gzipped_with_dic_sciNEXT_withbarcodecorrection.py
+script=$script_folder/UMI_barcode_attach.py
 echo "Changing the name of the fastq files..."
 for sample in $(cat $sample_ID); do echo changing name $sample; mv $input_folder/*$sample*R1_001.fastq.gz $input_folder/$sample.R1.fastq.gz; mv $input_folder/*$sample*R2_001.fastq.gz $input_folder/$sample.R2.fastq.gz; mv $input_folder/*$sample*R3_001.fastq.gz $input_folder/$sample.R3.fastq.gz; done
 
@@ -220,7 +220,7 @@ input_folder=$all_output_folder/sc_alignment
 output_folder=$all_output_folder/new_reads_txt_Monly
 mkdir -p $output_folder
 
-process_R_script=$script_path/select_newly_synthesised_read.R
+process_R_script=$script_path/select_nascent_reads.R
 
 # filter the newly synthesised reads for each single cell
 Rscript $process_R_script $input_folder $sc_barcode_list $output_folder $core $ref_SNP_var_file
