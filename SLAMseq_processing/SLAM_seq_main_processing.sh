@@ -77,10 +77,6 @@ mkdir -p $trimmed_fastq
 
 Rscript $R_script $bash_script $raw_fastq $sample_ID $trimmed_fastq $core
 
-##change file names
-for sample in $(cat $sample_ID); do mv $trimmed_fastq/${sample}*R1*gz $trimmed_fastq/${sample}.R1.fastq.gz; mv $trimmed_fastq/${sample}*R2*gz $trimmed_fastq/${sample}.R2.fastq.gz; done
-echo "All trimmed file generated."
-
 ############align the reads with STAR, filter the reads based on q > 30, and remove duplicates based on UMI sequence and tagmentation site
 
 #define the output folder for mapping
