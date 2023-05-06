@@ -11,6 +11,7 @@ Fastq input: Paired-end full-coverage bulk RNA-seq datasets
 6. Inherent SNP calling.
 
 ### Single cell whole/nascent transcriptomes reprocessing steps (/whole_tx_processing/Main_processing.sh)
+Fastq input: Paired-end PerturbSci-Kinetics demultiplexed whole transcriptome fastq files. 
 1. Change file names of fastq to make them callable in the following steps.
 2. Attach UMI sequences on R1 to headers of R2.
 3. Trim potential polyA sequences from the 3'end of R2.
@@ -24,6 +25,7 @@ Fastq input: Paired-end full-coverage bulk RNA-seq datasets
 11. Gene-level feature counting and re-format the single-cell gene expression matrix.
 
 ### Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)
+Fastq input: Paired-end PerturbSci-Kinetics demultiplexed sgRNA fastq files. 
 1. Change file names of fastq to make them callable in the following steps.
 2. One-step sgRNA identification, de-duplication, and counting.
 3. Re-format the single-cell sgRNA expression matrix.
