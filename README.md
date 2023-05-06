@@ -53,7 +53,7 @@ ___
 11. Gene-level feature counting on both single-cell whole/nascent sams and re-format the single-cell gene expression matrix.
 
 #### Key output
-* An R object file containing an single-cell whole tx expression matrix.
+* Two R object files containing single-cell whole/nascent tx expression count matrix respectively.
 ___
 ### **Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)**
 #### Key parameters
@@ -90,7 +90,7 @@ ___
 12. Gene-level feature counting on both whole/nascent bams and re-format the gene expression matrix.
 
 #### Key output
-* An R object file containing a gene x sample expression matrix.
+* Two R object files containing gene x sample whole/nascent tx expression count matrix respectively.
 ___
 ### **Key R functions in downstream analysis (/downstream_function/key_functions.R)**
 1. filter_dT_cells(): Get single-cell whole tx expression matrix from the output R.object of the preprocessing script.
