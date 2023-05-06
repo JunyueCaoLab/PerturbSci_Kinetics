@@ -64,9 +64,9 @@ input_folder=$fastq_folder
 echo "Changing the name of the fastq files..."
 for sample in $(cat $sample_ID); do echo changing name $sample; mv $input_folder/*$sample*R1_001.fastq.gz $input_folder/$sample.R1.fastq.gz; mv $input_folder/*$sample*R3_001.fastq.gz $input_folder/$sample.R2.fastq.gz; done
 
-################# Trimming the read2
+################# Trimming read1 and read2
 echo
-echo "Start trimming the read2 file..."
+echo "Start trimming reads..."
 echo $(date)
 
 raw_fastq=$fastq_folder
@@ -77,7 +77,7 @@ mkdir -p $trimmed_fastq
 
 Rscript $R_script $bash_script $raw_fastq $sample_ID $trimmed_fastq $core
 
-############align the reads with STAR, filter the reads based on q > 30, and remove duplicates based on UMI sequence and tagmentation site
+############align the reads with STAR, filter the reads based on q > 30, and remove duplicates by picard
 
 #define the output folder for mapping
 input_folder=$trimmed_fastq
@@ -171,10 +171,8 @@ output_folder=$all_output_folder/new_reads_txt_Monly
 splitted_id=$all_output_folder/splitted_alignment_id.txt
 mkdir -p $output_folder
 
-###here I use the newest modified new reads extraction script
 process_R_script=$script_folder/PE_select_nascent_reads.R
 
-# filter the newly synthesised reads for each single cell
 Rscript $process_R_script $input_folder $splitted_id $output_folder $core $ref_SNP_var_file
 
 ls $output_folder > $all_output_folder/splitted_id_with_new.txt
@@ -198,7 +196,7 @@ echo "new reads sams have been integrated."
 rm -rf $all_output_folder/alignment_for_mut_call
 rm -rf $all_output_folder/splitted_alignment_for_mut_call
 
-#################### extract these reads from splitted sam files
+#################### extract these reads from rmdup sam files
 echo "Start extracting nascent reads from each file."
 
 input_folder=$rmdup_sam_folder
