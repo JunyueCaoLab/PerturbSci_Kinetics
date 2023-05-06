@@ -19,6 +19,9 @@ ___
 4. Merge bams and sort the merged bam.
 5. Summarize the base identities of reads mapped to each genomic location. 
 6. Inherent SNP calling.
+
+###Key output
+* A vcf file containing background mutations in RNA.
 ___
 ### **Single cell whole/nascent transcriptomes reprocessing steps (/whole_tx_processing/Main_processing.sh)**
 #### Key parameters
@@ -48,6 +51,9 @@ ___
 9. Identify T>C mutations on each single read and extract read names of nascent reads.
 10. Extract nascent reads from single-cell sams.
 11. Gene-level feature counting on both single-cell whole/nascent sams and re-format the single-cell gene expression matrix.
+
+###Key output
+* An R object file containing an single-cell whole tx expression matrix.
 ___
 ### **Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)**
 #### Key parameters
@@ -61,6 +67,9 @@ ___
 1. Change file names of fastq to make them callable in the following steps.
 2. One-step sgRNA identification, de-duplication, and counting.
 3. Re-format the single-cell sgRNA expression matrix.
+
+###Key output
+* An R object file containing an single-cell sgRNA expression matrix.
 ___
 ### **Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_main_processing.sh)**
 #### Key parameters
@@ -79,3 +88,13 @@ ___
 10. Merge mutation info identified from all sub tables under one sample, and extract names of nascent reads.
 11. Extract nascent reads from sams.
 12. Gene-level feature counting on both whole/nascent bams and re-format the gene expression matrix.
+
+###Key output
+* An R object file containing a gene x sample expression matrix.
+___
+### **Key R functions in downstream analysis (/downstream_function/key_functions.R)**
+1. filter_dT_cells(): Get single-cell whole tx expression matrix from the output R.object of the preprocessing script.
+2. gene_id2gene_names(): Convert gene ids to gene symbols using the matched gtf file
+3. gRNA_cell_reformatting(): Read and reformat the sgRNA single-cell expression matrix to make it compatible with the integradation with whole tx info.
+4. match_whole_nascent_txme_with_gRNA(): Integrate whole tx data with sgRNA info, identify sgRNA-based singlets, and return a integrated obj.
+5. synth_deg_bootstrapping_NTC_vs_KD(): Calculate synthesis and degradation rates on cell populations. Also perform permutation tests between perturbations and NTC to examine the statistical significance.
