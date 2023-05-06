@@ -1,5 +1,6 @@
 # PerturbSci_Kinetics
 Reads processing scripts for PerturbSci-Kinetics.
+The bioRxiv preprint: https://doi.org/10.1101/2023.01.29.526143
 ___
 ### **Background SNP calling (/bg_SNP_calling/SNP_calling_processing.sh)**
 #### Key parameters
