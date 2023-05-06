@@ -20,7 +20,7 @@ ___
 5. Summarize the base identities of reads mapped to each genomic location. 
 6. Inherent SNP calling.
 
-### Key output
+#### Key output
 * A vcf file containing background mutations in RNA.
 ___
 ### **Single cell whole/nascent transcriptomes reprocessing steps (/whole_tx_processing/Main_processing.sh)**
@@ -52,7 +52,7 @@ ___
 10. Extract nascent reads from single-cell sams.
 11. Gene-level feature counting on both single-cell whole/nascent sams and re-format the single-cell gene expression matrix.
 
-### Key output
+#### Key output
 * An R object file containing an single-cell whole tx expression matrix.
 ___
 ### **Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)**
@@ -68,7 +68,7 @@ ___
 2. One-step sgRNA identification, de-duplication, and counting.
 3. Re-format the single-cell sgRNA expression matrix.
 
-### Key output
+#### Key output
 * An R object file containing an single-cell sgRNA expression matrix.
 ___
 ### **Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_main_processing.sh)**
@@ -89,7 +89,7 @@ ___
 11. Extract nascent reads from sams.
 12. Gene-level feature counting on both whole/nascent bams and re-format the gene expression matrix.
 
-### Key output
+#### Key output
 * An R object file containing a gene x sample expression matrix.
 ___
 ### **Key R functions in downstream analysis (/downstream_function/key_functions.R)**
