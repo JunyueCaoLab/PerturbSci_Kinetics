@@ -146,7 +146,7 @@ input_folder=$rmdup_sam_folder
 alignment_folder=$all_output_folder/alignment_for_mut_call
 mkdir -p $alignment_folder
 
-bash_script=$script_folder/seq_align.sh
+bash_script=$script_folder/PE_seq_align.sh
 
 Rscript $R_script $bash_script $input_folder $sample_ID $alignment_folder $core $ref_genome_fa
 
@@ -176,7 +176,7 @@ splitted_id=$all_output_folder/splitted_alignment_id.txt
 mkdir -p $output_folder
 
 ###here I use the newest modified new reads extraction script
-process_R_script=$script_folder/select_newly_synthesised_read.strandness_corrected.PE_M_only.R
+process_R_script=$script_folder/PE_select_nascent_reads.R
 
 # filter the newly synthesised reads for each single cell
 Rscript $process_R_script $input_folder $splitted_id $output_folder $core $ref_SNP_var_file
@@ -192,7 +192,7 @@ output_folder=$all_output_folder/sampled_level_new_reads_txt_Monly
 splitted_id_with_new=$all_output_folder/splitted_id_with_new.txt
 mkdir -p $output_folder
 
-integration_R_script=$script_folder/newly_synthesised_read_sample_level_integration.R
+integration_R_script=$script_folder/PE_nascent_read_sample_level_integration.R
 
 Rscript $integration_R_script $input_folder $sample_ID $splitted_id_with_new $output_folder $core
 
@@ -210,7 +210,7 @@ new_reads_txt_folder=$all_output_folder/sampled_level_new_reads_txt_Monly
 output_folder=$all_output_folder/new_reads_sam_Monly
 mkdir -p $output_folder
 
-bash_script=$script_folder/extract_new_reads.v2.sh
+bash_script=$script_folder/PE_extract_new_reads.sh
 
 Rscript $R_script $bash_script $input_folder $sample_ID $output_folder $core $new_reads_txt_folder
 
