@@ -2,7 +2,15 @@
 Reads processing scripts for PerturbSci-Kinetics.
 
 ### Background SNP calling (/bg_SNP_calling/SNP_calling_processing.sh)
-Fastq input: Paired-end full-coverage bulk RNA-seq datasets
+##### Key parameter
+Fastq input: Paired-end full-coverage bulk RNA-seq
+Sample ID: a text file containing prefixes of each sample. R1 and R2 files from the sample should share the prefixes.
+Reference fasta: the fasta file of the reference genome.
+Index: the STAR index of the reference genome.
+Output folder: the directory for all output files
+script folder: the folder for all sub scripts
+
+##### Steps
 1. Trim adapter sequences by automatic detection.
 2. STAR alignment.
 3. Filter aligned reads.
