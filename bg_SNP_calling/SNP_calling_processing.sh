@@ -35,7 +35,7 @@ script_path=$script_folder
 now=$(date)
 echo "Current time : $now"
 
-###load the env
+#################load the env
 conda deactivate
 source $bashrc_location
 conda activate original_pipeline
@@ -84,11 +84,11 @@ echo "Start filter and sort the sam files..."
 echo input folder: $STAR_output_folder
 echo output folder: $filtered_sam_folder
 mkdir -p $filtered_sam_folder
-    
-######for sample in $(cat $sample_ID); do
+
+for sample in $(cat $sample_ID); do
 samtools view -bh -q 30 -@ $core $STAR_output_folder/$sample*.sam|samtools sort -@ $core -|samtools view -bh -@ $core ->$filtered_sam_folder/$sample.bam
 samtools index -@ $core $filtered_sam_folder/$sample.bam
-######done
+done
 
 # Call SNPs from the control files
 ### Generate a script with: (1) input folder (2) sample list (3) output folder, merge the single cell sam files in the
