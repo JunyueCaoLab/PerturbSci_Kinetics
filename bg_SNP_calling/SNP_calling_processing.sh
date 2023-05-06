@@ -21,7 +21,7 @@ samtools_core=4 # for reads filtering and sorting
 index="/zxu/gencode_ref_anno/hg38_STAR_index"
 reference_fa="/zxu/gencode_ref_anno/GRCh38.primary_assembly.genome.fa"
 varscan_zx="/zxu/tools/varscan/VarScan.v2.3.9.jar"
-java_zx="/rugpfs/fs0/cao_lab/scratch/zxu/tools/openjdk_v11/jdk-11.0.2/bin/java"
+java_zx="/zxu/tools/openjdk_v11/jdk-11.0.2/bin/java"
 
 # Define the location of the sub script folder
 script_folder="/zxu/scripts/bulk_PERNAseq"
