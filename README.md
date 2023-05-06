@@ -92,7 +92,7 @@ ___
 #### Key output
 * Two R object files containing gene x sample whole/nascent tx expression count matrix respectively.
 ___
-### **Key R functions in downstream analysis (/downstream_function/key_functions.R)**
+### **Key R functions in downstream analysis (/downstream_functions/key_functions.R)**
 1. filter_dT_cells(): Get single-cell whole tx expression matrix from the output R.object of the preprocessing script.
 2. gene_id2gene_names(): Convert gene ids to gene symbols using the matched gtf file
 3. gRNA_cell_reformatting(): Read and reformat the sgRNA single-cell expression matrix to make it compatible with the integradation with whole tx info.
