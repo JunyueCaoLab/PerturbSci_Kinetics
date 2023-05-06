@@ -1,7 +1,7 @@
 # PerturbSci_Kinetics
 Reads processing scripts for PerturbSci-Kinetics.
 ___
-### Background SNP calling (/bg_SNP_calling/SNP_calling_processing.sh)
+### **Background SNP calling (/bg_SNP_calling/SNP_calling_processing.sh)**
 #### Key parameters
 * Fastq input: Paired-end full-coverage bulk RNA-seq.
 * Sample ID: a text file containing the prefix of each sample on each line. R1 and R2 files from the sample should share the same prefix.
@@ -19,7 +19,7 @@ ___
 5. Summarize the base identities of reads mapped to each genomic location. 
 6. Inherent SNP calling.
 ___
-### Single cell whole/nascent transcriptomes reprocessing steps (/whole_tx_processing/Main_processing.sh)
+### **Single cell whole/nascent transcriptomes reprocessing steps (/whole_tx_processing/Main_processing.sh)**
 #### Key parameters
 * Fastq input: Paired-end PerturbSci-Kinetics demultiplexed whole transcriptome fastq files. 
 * Sample ID: a text file containing the prefix of each sample on each line. R1 and R2 files from the sample should share the same prefix.
@@ -48,7 +48,7 @@ ___
 10. Extract nascent reads from single-cell sams.
 11. Gene-level feature counting on both single-cell whole/nascent sams and re-format the single-cell gene expression matrix.
 ___
-### Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)
+### **Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)**
 #### Key parameters
 * Fastq input: Paired-end PerturbSci-Kinetics demultiplexed sgRNA fastq files. 
 * Cutoff: only cell barcodes with the number of sgRNA UMI > cutoff will be considered
@@ -61,7 +61,7 @@ ___
 2. One-step sgRNA identification, de-duplication, and counting.
 3. Re-format the single-cell sgRNA expression matrix.
 ___
-Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_main_processing.sh)
+### **Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_main_processing.sh)**
 #### Key parameters
 * Parameters are roughly the same as those in single-cell processing scripts.
 
@@ -74,7 +74,7 @@ Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_
 6. PCR duplicates removal by picard.
 7. Transform the alignment information in sams to tables at the single-base level.
 8. Split the alignment info table into small sub tables.
-9. Identify T>C mutations on each single read.
+9. Identify T>C mutations on each read pair.
 10. Merge mutation info identified from all sub tables under one sample, and extract names of nascent reads.
 11. Extract nascent reads from sams.
 12. Gene-level feature counting on both whole/nascent bams and re-format the gene expression matrix.
