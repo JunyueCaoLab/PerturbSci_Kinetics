@@ -46,7 +46,7 @@ ___
 8. Transform the alignment information in single-cell sams to tables at the single-base level.
 9. Identify T>C mutations on each single read and extract read names of nascent reads.
 10. Extract nascent reads from single-cell sams.
-11. Gene-level feature counting and re-format the single-cell gene expression matrix.
+11. Gene-level feature counting on both single-cell whole/nascent sams and re-format the single-cell gene expression matrix.
 ___
 ### Single cell sgRNA reprocessing steps (/sgRNA_reads_processing/sgRNA_processing.sh)
 #### Key parameters
@@ -60,3 +60,21 @@ ___
 1. Change file names of fastq to make them callable in the following steps.
 2. One-step sgRNA identification, de-duplication, and counting.
 3. Re-format the single-cell sgRNA expression matrix.
+___
+Paired-end bulk SLAM-seq reads reprocessing steps (/SLAMseq_processing/SLAM_seq_main_processing.sh)
+#### Key parameters
+* Parameters are roughly the same as those in single-cell processing scripts.
+
+#### Steps
+1. Change file names of fastq to make them callable in the following steps.
+2. Attach UMI sequences on R1 to headers of R2.
+3. Trim potential adapter sequences from the 3'end of R1 and R2.
+4. STAR alignment.
+5. Filter aligned reads.
+6. PCR duplicates removal by picard.
+7. Transform the alignment information in sams to tables at the single-base level.
+8. Split the alignment info table into small sub tables.
+9. Identify T>C mutations on each single read.
+10. Merge mutation info identified from all sub tables under one sample, and extract names of nascent reads.
+11. Extract nascent reads from sams.
+12. Gene-level feature counting on both whole/nascent bams and re-format the gene expression matrix.
